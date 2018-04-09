@@ -1,0 +1,39 @@
+import pygame
+import sys
+import time
+altura = 1366/2
+largura = 768/2
+WHITE = (255,255,255)
+GREY = (0,255,72)
+
+pygame.init()
+tela = pygame.display.set_mode([1366, 768])
+texto = 'seila'
+class amostrafonte(object):
+    def amostra(self,seila):
+        self.fonte = pygame.font.Font("arial.ttf", 70)
+        for cont in texto:
+            sys.stdout.write(cont)
+            sys.stdout.flush()
+            time.sleep(0.2)
+        self.fonte = self.fonte.render(texto, 1, GREY)
+        seila.blit(self.fonte, (altura, largura))
+
+
+
+
+sair = False
+ggizi = amostrafonte()
+
+while sair != True:
+    ggizi.amostra(tela)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sair = True
+
+
+
+    pygame.display.update()
+
+
+pygame.quit()
